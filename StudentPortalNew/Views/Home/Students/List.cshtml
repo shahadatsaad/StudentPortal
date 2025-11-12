@@ -1,0 +1,34 @@
+﻿@model List<StudentPortal.Models.Entities.Student>
+@{
+    ViewData["Title"] = "Student List";
+}
+<h1>Students</h1>
+
+<a class="btn btn-primary" asp-controller="Students" asp-action="Add">Add Student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.ID</td>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.ID">Edit</a>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Delete" asp-route-id="@student.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
